@@ -1,4 +1,4 @@
-module github.com/PatBanks/HouseCrawler
+module github.com/PatBanks/HouseCrawler.git
 
 go 1.15
 
