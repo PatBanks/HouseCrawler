@@ -18,8 +18,8 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"github.com/spf13/cobra"
 
+	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
@@ -53,11 +53,7 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.HouseCrawler.git.yaml)")
-
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.HouseCrawler.yaml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -73,9 +69,9 @@ func initConfig() {
 		// Search config in home directory with name ".HouseCrawler.git" (without extension).
 		viper.AddConfigPath(home)
 		viper.SetConfigType("yaml")
-		viper.SetConfigName(".HouseCrawler.git")
+		viper.SetConfigName(".HouseCrawler.")
 	}
-
+	viper.SetEnvPrefix("HouseCrawler")
 	viper.AutomaticEnv() // read in environment variables that match
 
 	// If a config file is found, read it in.
