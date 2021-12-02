@@ -1,8 +1,6 @@
 package src
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func crawl(webURL string) {
 	fmt.Println("crawl: " + webURL)
